@@ -1,741 +1,546 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Friends Day — World Harvest Church</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --purple: #5c3d8f;
-    --purple-mid: #7b52b9;
-    --purple-light: #ede8f7;
-    --gold: #c9a84c;
-    --gold-light: #f5edd6;
-    --white: #ffffff;
-    --off-white: #faf9fc;
-    --text-dark: #1a1128;
-    --text-mid: #4a3d60;
-    --text-muted: #9b8ab4;
-    --border: #e8e2f4;
-  }
-
-  body {
-    background: #f0ecf8;
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text-dark);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── WRAPPER ── */
-  .email-wrapper {
-    max-width: 680px;
-    margin: 40px auto;
-    background: var(--white);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 32px 80px rgba(92,61,143,0.18);
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: linear-gradient(145deg, #3b1f72 0%, #5c3d8f 45%, #8b5fc7 100%);
-    padding: 56px 48px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201,168,76,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(139,95,199,0.3) 0%, transparent 70%);
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.4);
-    padding: 6px 18px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    position: relative;
-  }
-  .hero-logo {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    position: relative;
-  }
-  .hero-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 58px;
-    font-weight: 900;
-    color: white;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    position: relative;
-    margin-bottom: 12px;
-  }
-  .hero h1 span {
-    color: var(--gold);
-  }
-  .hero-subtitle {
-    font-size: 16px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.6;
-    position: relative;
-    margin-bottom: 36px;
-    max-width: 380px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-date-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 100px;
-    padding: 10px 24px;
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    position: relative;
-  }
-  .hero-date-pill .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-  }
-
-  /* ── INTRO STRIP ── */
-  .intro-strip {
-    background: var(--purple);
-    padding: 32px 48px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  .intro-strip-icon {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-  }
-  .intro-strip p {
-    color: rgba(255,255,255,0.9);
-    font-size: 15px;
-    line-height: 1.65;
-    font-weight: 300;
-  }
-  .intro-strip p strong {
-    color: white;
-    font-weight: 600;
-  }
-
-  /* ── BODY CONTENT ── */
-  .body-content {
-    padding: 48px 48px 40px;
-    background: var(--white);
-  }
-
-  /* ── SECTION LABEL ── */
-  .section-label {
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── JOURNEY TIMELINE ── */
-  .timeline {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-  .timeline-card {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px 20px 18px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .timeline-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(92,61,143,0.10);
-  }
-  .timeline-card.featured {
-    grid-column: 1 / -1;
-    background: linear-gradient(120deg, var(--purple-light) 0%, #f3eefe 100%);
-    border-color: rgba(92,61,143,0.2);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 20px;
-    align-items: start;
-  }
-  .card-week {
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 14px;
-    flex-shrink: 0;
-  }
-  .week-bfg  { background: #1a1128; color: white; }
-  .week-w1   { background: #5c8a6e; color: white; }
-  .week-w2   { background: #3d7a6e; color: white; }
-  .week-w3   { background: #a06b28; color: white; }
-  .week-w4   { background: #c45e3e; color: white; }
-  .week-w5   { background: #8b3535; color: white; }
-  .week-w6   { background: #5c3d8f; color: white; }
-  .week-fd   { background: var(--gold); color: #1a1128; }
-  .week-plus { background: #4a7fa5; color: white; }
-
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 4px;
-  }
-  .card-tagline {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-    letter-spacing: 0.03em;
-  }
-  .card-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .card-items li {
-    font-size: 12.5px;
-    color: var(--text-mid);
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.4;
-  }
-  .card-items li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--purple-mid);
-    font-weight: 600;
-  }
-
-  /* ── BIG DAY CARD ── */
-  .friends-day-card {
-    background: linear-gradient(135deg, var(--purple) 0%, #3b1f72 100%);
-    border-radius: 20px;
-    padding: 36px;
-    margin-bottom: 36px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .friends-day-card::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: rgba(201,168,76,0.12);
-  }
-  .friends-day-card::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -40px;
-    width: 220px; height: 220px;
-    border-radius: 50%;
-    background: rgba(139,95,199,0.2);
-  }
-  .fdc-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .fdc-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 900;
-    color: white;
-    line-height: 1.1;
-    margin-bottom: 8px;
-    position: relative;
-  }
-  .fdc-title span { color: var(--gold); }
-  .fdc-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    font-weight: 300;
-    margin-bottom: 24px;
-    position: relative;
-  }
-  .fdc-items {
-    list-style: none;
-    text-align: left;
-    display: inline-flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 28px;
-    position: relative;
-  }
-  .fdc-items li {
-    font-size: 13px;
-    color: rgba(255,255,255,0.85);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .fdc-items li i {
-    color: var(--gold);
-    font-size: 13px;
-    margin-top: 1px;
-    flex-shrink: 0;
-  }
-  .cta-btn {
-    display: inline-block;
-    background: var(--gold);
-    color: #1a1128;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    padding: 14px 36px;
-    border-radius: 100px;
-    position: relative;
-    cursor: pointer;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .cta-btn:hover { opacity: 0.9; transform: scale(1.02); }
-
-  /* ── 3 STEPS ROW ── */
-  .steps-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-bottom: 40px;
-  }
-  .step-card {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 22px 18px;
-    text-align: center;
-  }
-  .step-num {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    background: var(--purple-light);
-    color: var(--purple);
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 14px;
-  }
-  .step-card h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 6px;
-  }
-  .step-card p {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  /* ── TESTIMONY HIGHLIGHT ── */
-  .testimony-block {
-    background: var(--gold-light);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-left: 4px solid var(--gold);
-    border-radius: 14px;
-    padding: 24px 28px;
-    margin-bottom: 36px;
-  }
-  .testimony-block .tb-label {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #a07828;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  .testimony-block .tb-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-style: italic;
-    color: var(--text-dark);
-    line-height: 1.6;
-  }
-  .testimony-block .tb-week {
-    margin-top: 12px;
-    font-size: 12px;
-    color: #8a6820;
-    font-weight: 500;
-  }
-
-  /* ── FOLLOW-UP ── */
-  .followup-card {
-    background: linear-gradient(120deg, #f0ecf8 0%, #faf8ff 100%);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 28px;
-    margin-bottom: 36px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: center;
-  }
-  .followup-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-  .followup-card p {
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-  .followup-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .followup-items li {
-    font-size: 13px;
-    color: var(--text-mid);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.4;
-  }
-  .followup-items li .fi-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--purple-mid);
-    margin-top: 5px;
-    flex-shrink: 0;
-  }
-
-  /* ── FOOTER ── */
-  .footer {
-    background: #1a1128;
-    padding: 32px 48px;
-    text-align: center;
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 4px;
-  }
-  .footer-tagline {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-  .footer p {
-    font-size: 11.5px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.7;
-  }
-  .footer a {
-    color: var(--purple-mid);
-    text-decoration: none;
-  }
-
-  /* ── PRINT ── */
-  @media print {
-    body { background: white; }
-    .email-wrapper { box-shadow: none; margin: 0; border-radius: 0; max-width: 100%; }
-    .timeline-card:hover { transform: none; box-shadow: none; }
-  }
-
-  @media (max-width: 600px) {
-    .hero { padding: 40px 28px 36px; }
-    .hero h1 { font-size: 40px; }
-    .intro-strip { padding: 24px 28px; }
-    .body-content { padding: 32px 24px; }
-    .timeline { grid-template-columns: 1fr; }
-    .timeline-card.featured { grid-template-columns: 1fr; }
-    .steps-row { grid-template-columns: 1fr; }
-    .followup-card { grid-template-columns: 1fr; }
-    .footer { padding: 28px 24px; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+  body, table, td, p, a, li, span { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  table { border-collapse:collapse !important; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+  img { border:0; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; display:block; }
+  body { margin:0 !important; padding:0 !important; background-color:#ede8f7; }
+  @media only screen and (max-width:620px) {
+    .email-wrap { width:100% !important; }
+    .two-col td { display:block !important; width:100% !important; padding:0 0 12px 0 !important; }
+    .three-col td { display:block !important; width:100% !important; padding:0 0 12px 0 !important; }
+    .followup-l, .followup-r { display:block !important; width:100% !important; padding:0 0 20px 0 !important; }
+    h1.big { font-size:46px !important; }
   }
 </style>
 </head>
-<body>
+<body style="margin:0;padding:0;background-color:#ede8f7;font-family:'DM Sans',Arial,Helvetica,sans-serif;">
 
-<div class="email-wrapper">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ede8f7">
+<tr><td align="center" style="padding:28px 12px;">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-eyebrow">World Harvest Church · Special Invitation</div>
-    <div class="hero-logo"><img src="https://elro-images.s3.us-east-2.amazonaws.com/tosm/WHC+Wheat+Logo+(1).png" alt="World Harvest Church"></div>
-    <h1>Friends<br><span>Day</span></h1>
-    <p class="hero-subtitle">A 6-week journey of faith, community, and invitation — ending in the most powerful Sunday of the year.</p>
-    <div class="hero-date-pill">
-      <span class="dot"></span>
-      6-Week Sprint · Quarterly Campaign
-      <span class="dot"></span>
-    </div>
-  </div>
+<table class="email-wrap" role="presentation" width="620" cellpadding="0" cellspacing="0" border="0"
+  style="width:620px;max-width:620px;background-color:#ffffff;border-radius:20px;overflow:hidden;">
 
-  <!-- INTRO STRIP -->
-  <div class="intro-strip">
-    <div class="intro-strip-icon"><i class="fa-solid fa-hands-praying" style="color:rgba(255,255,255,0.85);font-size:20px;"></i></div>
-    <p>We believe <strong>everyone deserves a seat at the table.</strong> This season, we're asking every member to carry <strong>3 names</strong> — friends, family, and neighbors — and trust God to move. Here's your 6-week roadmap to Friends Day.</p>
-  </div>
+  <!-- ════════ HERO ════════ -->
+  <tr>
+    <td align="center" bgcolor="#3d2070"
+        style="background:linear-gradient(150deg,#2e1658 0%,#5c3d8f 55%,#7b52b9 100%);padding:50px 36px 44px;border-radius:20px 20px 0 0;">
 
-  <!-- BODY -->
-  <div class="body-content">
+      <!-- Eyebrow pill -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 26px;">
+        <tr><td align="center" style="border:1px solid rgba(201,168,76,0.5);border-radius:100px;padding:6px 22px;">
+          <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:600;
+              letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;white-space:nowrap;">
+            WORLD HARVEST CHURCH &nbsp;·&nbsp; SPECIAL INVITATION
+          </span>
+        </td></tr>
+      </table>
 
-    <!-- PHASE 1: LAUNCH -->
-    <div class="section-label">The 6-Week Journey</div>
+      <!-- Logo -->
+      <img src="https://elro-images.s3.us-east-2.amazonaws.com/tosm/WHC+Wheat+Logo+(1).png"
+           alt="WHC" width="88" height="88"
+           style="width:88px;height:88px;object-fit:contain;margin:0 auto 22px;display:block;">
 
-    <div class="timeline">
+      <!-- Friends -->
+      <p class="big" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+          font-size:60px;font-weight:900;color:#ffffff;line-height:1.0;
+          margin:0 auto 2px;padding:0;text-align:center;">Friends</p>
+      <!-- Day in gold -->
+      <p class="big" style="font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+          font-size:60px;font-weight:900;color:#c9a84c;line-height:1.0;
+          margin:0 auto 20px;padding:0;text-align:center;">Day</p>
 
-      <!-- Pre-launch -->
-      <div class="timeline-card">
-        <div class="card-week week-bfg">BFG</div>
-        <div class="card-title">Pre-Launch</div>
-        <div class="card-tagline">Leaders prep groups</div>
-        <ul class="card-items">
-          <li>Text each member personally</li>
-          <li>Pray, bring 3 names</li>
-          <li>Build expectation in your group</li>
-        </ul>
-      </div>
+      <!-- Subtitle -->
+      <p style="font-family:'DM Sans',Arial,sans-serif;font-size:15px;font-weight:300;
+          color:rgba(255,255,255,0.78);line-height:1.65;
+          margin:0 auto 32px;padding:0;max-width:360px;text-align:center;">
+        A 6-week journey of faith, community, and invitation &mdash; ending in the most powerful Sunday of the year.
+      </p>
 
-      <!-- W1 -->
-      <div class="timeline-card">
-        <div class="card-week week-w1">W1</div>
-        <div class="card-title">Launch Sunday</div>
-        <div class="card-tagline">3 names. One card.</div>
-        <ul class="card-items">
-          <li>Announce Friends Day publicly</li>
-          <li>Hand out prayer cards</li>
-          <li>3 names per card to pray over</li>
-          <li>BFG leaders collect names</li>
-          <li>Goal: 1,200+ names</li>
-        </ul>
-      </div>
+      <!-- Date pill -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;">
+        <tr><td align="center" style="background-color:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);
+            border-radius:100px;padding:10px 28px;">
+          <span style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:500;color:#ffffff;">
+            &#9679;&nbsp; 6-Week Sprint &nbsp;·&nbsp; Quarterly Campaign &nbsp;&#9679;
+          </span>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
 
-      <!-- W2 -->
-      <div class="timeline-card">
-        <div class="card-week week-w2">W2</div>
-        <div class="card-title">Prayer Wall</div>
-        <div class="card-tagline">Make faith visible.</div>
-        <ul class="card-items">
-          <li>Build lobby prayer wall</li>
-          <li>Pray over every chair</li>
-          <li>Photo wall for social media</li>
-          <li>BFGs pray names weekly</li>
-        </ul>
-      </div>
+  <!-- ════════ INTRO STRIP ════════ -->
+  <tr>
+    <td bgcolor="#5c3d8f" style="background-color:#5c3d8f;padding:0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td width="72" valign="middle" style="padding:26px 0 26px 32px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr><td align="center" valign="middle" width="48" height="48"
+                  style="width:48px;height:48px;background-color:rgba(255,255,255,0.15);
+                         border-radius:12px;font-size:22px;color:#ffffff;
+                         font-family:'DM Sans',Arial,sans-serif;line-height:48px;">
+                &#9997;
+              </td></tr>
+            </table>
+          </td>
+          <td valign="middle" style="padding:26px 32px 26px 14px;">
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;font-weight:300;
+                color:rgba(255,255,255,0.9);line-height:1.7;margin:0;padding:0;">
+              We believe <strong style="color:#ffffff;font-weight:600;">everyone deserves a seat at the table.</strong>
+              This season, we&rsquo;re asking every member to carry
+              <strong style="color:#ffffff;font-weight:600;">3 names</strong> &mdash;
+              friends, family, and neighbors &mdash; and trust God to move.
+              Here&rsquo;s your 6-week roadmap to Friends Day.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-      <!-- W3 -->
-      <div class="timeline-card">
-        <div class="card-week week-w3">W3</div>
-        <div class="card-title">Mass Invite</div>
-        <div class="card-tagline">Biggest crowd Sunday.</div>
-        <ul class="card-items">
-          <li>Text your person — now</li>
-          <li>Whole church sends together</li>
-          <li>Words on screen in real time</li>
-          <li>Announce live wall count</li>
-        </ul>
-      </div>
+  <!-- ════════ BODY ════════ -->
+  <tr>
+    <td bgcolor="#ffffff" style="background-color:#ffffff;padding:40px 32px 36px;">
 
-      <!-- W4 — featured -->
-      <div class="timeline-card featured">
-        <div class="card-week week-w4" style="width:48px;height:48px;font-size:13px;">W4</div>
-        <div>
-          <div class="card-title" style="font-size:18px;">Testimony Sunday</div>
-          <div class="card-tagline">Real stories. Cards out.</div>
-          <ul class="card-items">
-            <li>3 people · 2 min · no script — authentic testimonies from real members</li>
-            <li>Guest who stayed shares their BFG life change journey</li>
-            <li>Each card: 3 names to personally invite for Friends Day</li>
-          </ul>
-        </div>
-      </div>
+      <!-- Section label: 6-Week Journey -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
+        <tr>
+          <td style="white-space:nowrap;padding-right:12px;">
+            <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;
+                letter-spacing:0.2em;text-transform:uppercase;color:#7b52b9;">THE 6-WEEK JOURNEY</span>
+          </td>
+          <td width="100%" style="border-top:1px solid #e8e2f4;">&nbsp;</td>
+        </tr>
+      </table>
 
-      <!-- W5 -->
-      <div class="timeline-card">
-        <div class="card-week week-w5">W5</div>
-        <div class="card-title">Confirmation</div>
-        <div class="card-tagline">Stand up if they said yes.</div>
-        <ul class="card-items">
-          <li>Public commitment moment</li>
-          <li>Pray over those waiting</li>
-          <li>BFGs confirm each guest</li>
-          <li>Know your count by Friday</li>
-        </ul>
-      </div>
+      <!-- ── Row 1: BFG + W1 ── -->
+      <table class="two-col" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+        <tr>
+          <td width="49%" valign="top" style="padding-right:6px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;">
+              <tr><td style="padding:18px 18px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+                  <tr><td style="background-color:#1a1128;border-radius:9px;padding:5px 11px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">BFG</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Pre-Launch</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">Leaders prep groups</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                  &ndash; Text each member personally<br>
+                  &ndash; Pray, bring 3 names<br>
+                  &ndash; Build expectation in your group
+                </p>
+              </td></tr>
+            </table>
+          </td>
+          <td width="49%" valign="top" style="padding-left:6px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;">
+              <tr><td style="padding:18px 18px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+                  <tr><td style="background-color:#5c8a6e;border-radius:9px;padding:5px 11px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">W1</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Launch Sunday</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">3 names. One card.</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                  &ndash; Announce Friends Day publicly<br>
+                  &ndash; Hand out prayer cards<br>
+                  &ndash; 3 names per card to pray over<br>
+                  &ndash; BFG leaders collect names<br>
+                  &ndash; Goal: 1,200+ names
+                </p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-      <!-- W6 -->
-      <div class="timeline-card">
-        <div class="card-week week-w6">W6</div>
-        <div class="card-title">Final Prep</div>
-        <div class="card-tagline">You are a host.</div>
-        <ul class="card-items">
-          <li>Teach congregation to host</li>
-          <li>Commission guest team</li>
-          <li>Sat night vigil 8pm–8am</li>
-          <li>Full volunteer rehearsal</li>
-        </ul>
-      </div>
+      <!-- ── Row 2: W2 + W3 ── -->
+      <table class="two-col" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+        <tr>
+          <td width="49%" valign="top" style="padding-right:6px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;">
+              <tr><td style="padding:18px 18px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+                  <tr><td style="background-color:#3d7a6e;border-radius:9px;padding:5px 11px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">W2</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Prayer Wall</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">Make faith visible.</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                  &ndash; Build lobby prayer wall<br>
+                  &ndash; Pray over every chair<br>
+                  &ndash; Photo wall for social media<br>
+                  &ndash; BFGs pray names weekly
+                </p>
+              </td></tr>
+            </table>
+          </td>
+          <td width="49%" valign="top" style="padding-left:6px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;">
+              <tr><td style="padding:18px 18px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+                  <tr><td style="background-color:#a06b28;border-radius:9px;padding:5px 11px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">W3</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Mass Invite</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">Biggest crowd Sunday.</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                  &ndash; Text your person &mdash; now<br>
+                  &ndash; Whole church sends together<br>
+                  &ndash; Words on screen in real time<br>
+                  &ndash; Announce live wall count
+                </p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-    </div>
+      <!-- ── W4 Featured — full width ── -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+        <tr>
+          <td style="background-color:#ede8f7;border:1px solid #d4caf0;border-radius:14px;padding:20px 22px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="52" valign="top" style="padding-right:16px;padding-top:2px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr><td style="background-color:#c45e3e;border-radius:9px;padding:6px 10px;">
+                      <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">W4</span>
+                    </td></tr>
+                  </table>
+                </td>
+                <td valign="top">
+                  <p style="font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Testimony Sunday</p>
+                  <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">Real stories. Cards out.</p>
+                  <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                    &ndash; 3 people &middot; 2 min &middot; no script &mdash; authentic testimonies from real members<br>
+                    &ndash; Guest who stayed shares their BFG life change journey<br>
+                    &ndash; Each card: 3 names to personally invite for Friends Day
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-    <!-- FRIENDS DAY CARD -->
-    <div class="friends-day-card">
-      <div class="fdc-eyebrow"><i class="fa-solid fa-star" style="font-size:8px;margin-right:6px;"></i> The Main Event <i class="fa-solid fa-star" style="font-size:8px;margin-left:6px;"></i></div>
-      <div class="fdc-title">Friends <span>Day</span></div>
-      <p class="fdc-sub">Fill the room. Transform a life.</p>
-      <ul class="fdc-items">
-        <li><i class="fa-solid fa-circle-check"></i>Prayer team on site from 7am — covering every seat</li>
-        <li><i class="fa-solid fa-circle-check"></i>Reserved guest parking — honor every first-time visitor</li>
-        <li><i class="fa-solid fa-circle-check"></i>Kids Express check-in — fast, friendly, joyful</li>
-        <li><i class="fa-solid fa-circle-check"></i>Preach for the undecided — a message that moves hearts</li>
-        <li><i class="fa-solid fa-circle-check"></i>Clear altar invitation — receive those who say yes</li>
-        <li><i class="fa-solid fa-circle-check"></i>Card + BFG invite per guest — every guest leaves connected</li>
-      </ul>
-    </div>
+      <!-- ── Row 3: W5 + W6 ── -->
+      <table class="two-col" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:36px;">
+        <tr>
+          <td width="49%" valign="top" style="padding-right:6px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;">
+              <tr><td style="padding:18px 18px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+                  <tr><td style="background-color:#8b3535;border-radius:9px;padding:5px 11px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">W5</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Confirmation</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">Stand up if they said yes.</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                  &ndash; Public commitment moment<br>
+                  &ndash; Pray over those waiting<br>
+                  &ndash; BFGs confirm each guest<br>
+                  &ndash; Know your count by Friday
+                </p>
+              </td></tr>
+            </table>
+          </td>
+          <td width="49%" valign="top" style="padding-left:6px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;">
+              <tr><td style="padding:18px 18px 16px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
+                  <tr><td style="background-color:#5c3d8f;border-radius:9px;padding:5px 11px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;color:#ffffff;letter-spacing:0.05em;">W6</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#1a1128;margin:0 0 3px;padding:0;">Final Prep</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:#9b8ab4;margin:0 0 10px;padding:0;font-style:italic;">You are a host.</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.65;margin:0;padding:0;">
+                  &ndash; Teach congregation to host<br>
+                  &ndash; Commission guest team<br>
+                  &ndash; Sat night vigil 8pm&ndash;8am<br>
+                  &ndash; Full volunteer rehearsal
+                </p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-    <!-- HOW TO INVITE: 3 STEPS -->
-    <div class="section-label">How to Invite</div>
-    <div class="steps-row">
-      <div class="step-card">
-        <div class="step-num"><i class="fa-solid fa-hands-praying"></i></div>
-        <h4>Pray 3 Names</h4>
-        <p>Write down 3 people God has placed on your heart. Pray over them daily this week.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num"><i class="fa-solid fa-paper-plane"></i></div>
-        <h4>Send the Invite</h4>
-        <p>Text, call, or share this email with your person. Make it personal — your story matters.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num"><i class="fa-solid fa-people-group"></i></div>
-        <h4>Bring Them With You</h4>
-        <p>Pick them up, sit with them, and introduce them to your WHC family on Friends Day.</p>
-      </div>
-    </div>
+      <!-- ════════ FRIENDS DAY HERO CARD ════════ -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:40px;">
+        <tr>
+          <td align="center" bgcolor="#3d2070"
+              style="background:linear-gradient(140deg,#2e1658 0%,#5c3d8f 60%,#7b52b9 100%);
+                     border-radius:18px;padding:38px 32px;">
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;
+                letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;margin:0 0 16px;padding:0;">
+              &#9733; &nbsp; THE MAIN EVENT &nbsp; &#9733;
+            </p>
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:900;
+                color:#ffffff;line-height:1.0;margin:0;padding:0;text-align:center;">Friends</p>
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:900;
+                color:#c9a84c;line-height:1.05;margin:0 0 10px;padding:0;text-align:center;">Day</p>
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:300;
+                color:rgba(255,255,255,0.7);margin:0 0 26px;padding:0;text-align:center;">
+                Fill the room. Transform a life.</p>
 
-    <!-- TESTIMONY HIGHLIGHT -->
-    <div class="testimony-block">
-      <div class="tb-label"><i class="fa-solid fa-quote-left" style="margin-right:6px;"></i> Real Story · Week 4 Testimony</div>
-      <div class="tb-text">"I almost didn't come. My friend texted me three Sundays in a row. On that fourth Sunday, I said yes — and everything changed."</div>
-      <div class="tb-week">BFG Life Change · World Harvest Church Member</div>
-    </div>
+            <!-- Checklist -->
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto;text-align:left;width:100%;max-width:440px;">
+              <tr><td style="padding-bottom:9px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                  <td width="28" valign="top" style="padding-top:1px;">
+                    <span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#c9a84c;font-weight:700;">&#10003;</span>
+                  </td>
+                  <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.5;">Prayer team on site from 7am &mdash; covering every seat</td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding-bottom:9px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                  <td width="28" valign="top" style="padding-top:1px;"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#c9a84c;font-weight:700;">&#10003;</span></td>
+                  <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.5;">Reserved guest parking &mdash; honor every first-time visitor</td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding-bottom:9px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                  <td width="28" valign="top" style="padding-top:1px;"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#c9a84c;font-weight:700;">&#10003;</span></td>
+                  <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.5;">Kids Express check-in &mdash; fast, friendly, joyful</td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding-bottom:9px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                  <td width="28" valign="top" style="padding-top:1px;"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#c9a84c;font-weight:700;">&#10003;</span></td>
+                  <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.5;">Preach for the undecided &mdash; a message that moves hearts</td>
+                </tr></table>
+              </td></tr>
+              <tr><td style="padding-bottom:9px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                  <td width="28" valign="top" style="padding-top:1px;"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#c9a84c;font-weight:700;">&#10003;</span></td>
+                  <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.5;">Clear altar invitation &mdash; receive those who say yes</td>
+                </tr></table>
+              </td></tr>
+              <tr><td>
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                  <td width="28" valign="top" style="padding-top:1px;"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#c9a84c;font-weight:700;">&#10003;</span></td>
+                  <td style="font-family:'DM Sans',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.5;">Card + BFG invite per guest &mdash; every guest leaves connected</td>
+                </tr></table>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-    <!-- FOLLOW-UP WEEK -->
-    <div class="followup-card">
-      <div>
-        <div class="card-week week-plus" style="margin:0 0 16px;">+1</div>
-        <h3>Follow-Up Week</h3>
-        <p style="margin-top:8px;">Retention lives here. What happens the week after Friends Day determines whether your guest returns. Don't miss this step.</p>
-      </div>
-      <ul class="followup-items">
-        <li><i class="fa-solid fa-message" style="color:var(--purple-mid);font-size:12px;margin-top:2px;flex-shrink:0;"></i>Text within 2 hours of the service ending</li>
-        <li><i class="fa-solid fa-envelope" style="color:var(--purple-mid);font-size:12px;margin-top:2px;flex-shrink:0;"></i>Card in mail by Tuesday with a personal note</li>
-        <li><i class="fa-solid fa-phone" style="color:var(--purple-mid);font-size:12px;margin-top:2px;flex-shrink:0;"></i>Personal call Wednesday — just to check in</li>
-        <li><i class="fa-solid fa-users" style="color:var(--purple-mid);font-size:12px;margin-top:2px;flex-shrink:0;"></i>Invite to a BFG this week — they need community</li>
-        <li><i class="fa-solid fa-note-sticky" style="color:var(--purple-mid);font-size:12px;margin-top:2px;flex-shrink:0;"></i>Return wall cards with a handwritten note</li>
-      </ul>
-    </div>
+      <!-- ════════ HOW TO INVITE ════════ -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;">
+        <tr>
+          <td style="white-space:nowrap;padding-right:12px;">
+            <span style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;
+                letter-spacing:0.2em;text-transform:uppercase;color:#7b52b9;">HOW TO INVITE</span>
+          </td>
+          <td width="100%" style="border-top:1px solid #e8e2f4;">&nbsp;</td>
+        </tr>
+      </table>
 
-  </div>
+      <table class="three-col" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:36px;">
+        <tr>
+          <td width="32%" valign="top" style="padding-right:7px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;text-align:center;">
+              <tr><td style="padding:22px 16px 20px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 14px;">
+                  <tr><td align="center" valign="middle" width="46" height="46"
+                      style="width:46px;height:46px;background-color:#ede8f7;border-radius:12px;">
+                    <span style="font-size:22px;line-height:46px;display:block;">&#9997;</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:14px;font-weight:700;color:#1a1128;margin:0 0 7px;padding:0;">Pray 3 Names</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#9b8ab4;line-height:1.55;margin:0;padding:0;">Write down 3 people God placed on your heart. Pray over them daily this week.</p>
+              </td></tr>
+            </table>
+          </td>
+          <td width="32%" valign="top" style="padding:0 3px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;text-align:center;">
+              <tr><td style="padding:22px 16px 20px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 14px;">
+                  <tr><td align="center" valign="middle" width="46" height="46"
+                      style="width:46px;height:46px;background-color:#ede8f7;border-radius:12px;">
+                    <span style="font-size:22px;line-height:46px;display:block;">&#9993;</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:14px;font-weight:700;color:#1a1128;margin:0 0 7px;padding:0;">Send the Invite</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#9b8ab4;line-height:1.55;margin:0;padding:0;">Text, call, or share this email. Make it personal &mdash; your story matters.</p>
+              </td></tr>
+            </table>
+          </td>
+          <td width="32%" valign="top" style="padding-left:7px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                style="background-color:#faf9fc;border:1px solid #e8e2f4;border-radius:14px;text-align:center;">
+              <tr><td style="padding:22px 16px 20px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 14px;">
+                  <tr><td align="center" valign="middle" width="46" height="46"
+                      style="width:46px;height:46px;background-color:#ede8f7;border-radius:12px;">
+                    <span style="font-size:22px;line-height:46px;display:block;">&#128106;</span>
+                  </td></tr>
+                </table>
+                <p style="font-family:'Playfair Display',Georgia,serif;font-size:14px;font-weight:700;color:#1a1128;margin:0 0 7px;padding:0;">Bring Them With You</p>
+                <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#9b8ab4;line-height:1.55;margin:0;padding:0;">Pick them up, sit with them, and introduce them to your WHC family.</p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-  <!-- FOOTER -->
-  <div class="footer">
-    <img src="https://elro-images.s3.us-east-2.amazonaws.com/tosm/WHC+Wheat+Logo+(1).png" alt="WHC Logo" style="width:60px;height:60px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8;margin-bottom:12px;">
-    <div class="footer-logo">World Harvest Church</div>
-    <div class="footer-tagline">Love God · Love People</div>
-    <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:18px;">
-      <i class="fa-solid fa-location-dot" style="color:var(--gold);font-size:13px;"></i>
-      <span style="font-size:12px;color:rgba(255,255,255,0.5);">Columbus, Ohio</span>
-      <i class="fa-solid fa-circle" style="font-size:4px;color:rgba(255,255,255,0.2);"></i>
-      <i class="fa-solid fa-globe" style="color:var(--gold);font-size:13px;"></i>
-      <span style="font-size:12px;color:rgba(255,255,255,0.5);">whc.life</span>
-      <i class="fa-solid fa-circle" style="font-size:4px;color:rgba(255,255,255,0.2);"></i>
-      <i class="fa-solid fa-church" style="color:var(--gold);font-size:13px;"></i>
-      <span style="font-size:12px;color:rgba(255,255,255,0.5);">Pastor Rod Parsley</span>
-    </div>
-    <p>
-      <i class="fa-regular fa-clock" style="margin-right:5px;color:rgba(255,255,255,0.3);"></i>Sundays @ 10am &nbsp;·&nbsp; Wednesdays @ 7pm Eastern<br><br>
-      You received this invitation from a WHC member who prayed your name.
-    </p>
-  </div>
+      <!-- ════════ TESTIMONY ════════ -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:36px;">
+        <tr>
+          <td style="background-color:#f5edd6;border-left:4px solid #c9a84c;border-radius:0 12px 12px 0;padding:22px 26px;">
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:700;
+                letter-spacing:0.18em;text-transform:uppercase;color:#a07828;margin:0 0 12px;padding:0;">
+              REAL STORY &nbsp;&middot;&nbsp; WEEK 4 TESTIMONY
+            </p>
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:17px;font-style:italic;
+                color:#1a1128;line-height:1.65;margin:0 0 12px;padding:0;">
+              &ldquo;I almost didn&rsquo;t come. My friend texted me three Sundays in a row.
+              On that fourth Sunday, I said yes &mdash; and everything changed.&rdquo;
+            </p>
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#8a6820;
+                font-weight:500;margin:0;padding:0;">BFG Life Change &nbsp;&middot;&nbsp; World Harvest Church Member</p>
+          </td>
+        </tr>
+      </table>
 
-</div>
+      <!-- ════════ FOLLOW-UP WEEK ════════ -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="background-color:#f5f3fc;border:1px solid #e8e2f4;border-radius:16px;padding:26px 26px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <!-- Left -->
+                <td class="followup-l" width="42%" valign="top" style="padding-right:22px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
+                    <tr><td style="background-color:#4a7fa5;border-radius:9px;padding:5px 13px;">
+                      <span style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:700;color:#ffffff;">+1</span>
+                    </td></tr>
+                  </table>
+                  <p style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;
+                      color:#1a1128;margin:0 0 8px;padding:0;">Follow-Up Week</p>
+                  <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;
+                      line-height:1.65;margin:0;padding:0;">Retention lives here. What happens the week after Friends Day determines whether your guest returns. Don&rsquo;t miss this step.</p>
+                </td>
+                <!-- Right -->
+                <td class="followup-r" width="56%" valign="top">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr><td style="padding-bottom:9px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                        <td width="20" valign="top"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#7b52b9;">&#8226;</span></td>
+                        <td style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.5;">Text within 2 hours of the service ending</td>
+                      </tr></table>
+                    </td></tr>
+                    <tr><td style="padding-bottom:9px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                        <td width="20" valign="top"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#7b52b9;">&#8226;</span></td>
+                        <td style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.5;">Card in mail by Tuesday with a personal note</td>
+                      </tr></table>
+                    </td></tr>
+                    <tr><td style="padding-bottom:9px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                        <td width="20" valign="top"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#7b52b9;">&#8226;</span></td>
+                        <td style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.5;">Personal call Wednesday &mdash; just to check in</td>
+                      </tr></table>
+                    </td></tr>
+                    <tr><td style="padding-bottom:9px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                        <td width="20" valign="top"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#7b52b9;">&#8226;</span></td>
+                        <td style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.5;">Invite to a BFG this week &mdash; they need community</td>
+                      </tr></table>
+                    </td></tr>
+                    <tr><td>
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+                        <td width="20" valign="top"><span style="font-family:'DM Sans',Arial,sans-serif;font-size:14px;color:#7b52b9;">&#8226;</span></td>
+                        <td style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:#4a3d60;line-height:1.5;">Return wall cards with a handwritten note</td>
+                      </tr></table>
+                    </td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+
+  <!-- ════════ FOOTER ════════ -->
+  <tr>
+    <td align="center" bgcolor="#1a1128"
+        style="background-color:#1a1128;padding:36px 36px 32px;border-radius:0 0 20px 20px;">
+
+      <img src="https://elro-images.s3.us-east-2.amazonaws.com/tosm/WHC+Wheat+Logo+(1).png"
+           alt="WHC" width="64" height="64"
+           style="width:64px;height:64px;object-fit:contain;display:block;margin:0 auto 14px;opacity:0.85;">
+
+      <p style="font-family:'Playfair Display',Georgia,serif;font-size:20px;font-weight:700;
+          color:#ffffff;margin:0 0 4px;padding:0;text-align:center;">World Harvest Church</p>
+      <p style="font-family:'DM Sans',Arial,sans-serif;font-size:10px;font-weight:600;
+          letter-spacing:0.2em;text-transform:uppercase;color:#c9a84c;
+          margin:0 0 22px;padding:0;text-align:center;">Love God &nbsp;&middot;&nbsp; Love People</p>
+
+      <!-- Info row -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 20px;">
+        <tr>
+          <td align="center" style="padding:0 16px;border-right:1px solid rgba(255,255,255,0.1);">
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:9px;color:rgba(255,255,255,0.4);
+                margin:0 0 3px;padding:0;text-transform:uppercase;letter-spacing:0.1em;">Location</p>
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.6);margin:0;padding:0;">Columbus, Ohio</p>
+          </td>
+          <td align="center" style="padding:0 16px;border-right:1px solid rgba(255,255,255,0.1);">
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:9px;color:rgba(255,255,255,0.4);
+                margin:0 0 3px;padding:0;text-transform:uppercase;letter-spacing:0.1em;">Website</p>
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.6);margin:0;padding:0;">whc.life</p>
+          </td>
+          <td align="center" style="padding:0 16px;">
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:9px;color:rgba(255,255,255,0.4);
+                margin:0 0 3px;padding:0;text-transform:uppercase;letter-spacing:0.1em;">Pastor</p>
+            <p style="font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.6);margin:0;padding:0;">Rod Parsley</p>
+          </td>
+        </tr>
+      </table>
+
+      <p style="font-family:'DM Sans',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);
+          line-height:1.75;margin:0;padding:0;text-align:center;">
+        Sundays @ 10am &nbsp;&middot;&nbsp; Wednesdays @ 7pm Eastern<br>
+        You received this invitation from a WHC member who prayed your name.
+      </p>
+
+    </td>
+  </tr>
+
+</table>
+
+</td></tr>
+</table>
 
 </body>
 </html>
